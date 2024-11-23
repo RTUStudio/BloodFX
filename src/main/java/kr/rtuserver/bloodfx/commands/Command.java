@@ -30,13 +30,14 @@ public class Command extends RSCommand {
     @Override
     public boolean execute(RSCommandData data) {
         PlayerChat chat = PlayerChat.of(getPlugin());
-        String on = getCommand().get("toggle.on");
-        String off = getCommand().get("toggle.off");
+        String on = getCommand().get("toggle.enable");
+        String off = getCommand().get("toggle.disable");
         if (data.equals(0, on)) {
             if (hasPermission("rsbfx.toggle")) {
                 if (getSender() instanceof Player player) {
                     toggleManager.on(player.getUniqueId());
-                    chat.announce(getSender(), getMessage().get("toggle.on"));
+                    chat.announce(getSender(), getMessage().get("toggle.enable"));
+                    return true;
                 } else chat.announce(getAudience(), getMessage().getCommon("onlyPlayer"));
             } else chat.announce(getAudience(), getMessage().getCommon("noPermission"));
         }
@@ -44,7 +45,8 @@ public class Command extends RSCommand {
             if (hasPermission("rsbfx.toggle")) {
                 if (getSender() instanceof Player player) {
                     toggleManager.off(player.getUniqueId());
-                    chat.announce(getSender(), getMessage().get("toggle.off"));
+                    chat.announce(getSender(), getMessage().get("toggle.disable"));
+                    return true;
                 } else chat.announce(getAudience(), getMessage().getCommon("onlyPlayer"));
             } else chat.announce(getAudience(), getMessage().getCommon("noPermission"));
         }
@@ -61,15 +63,15 @@ public class Command extends RSCommand {
     public void wrongUsage(RSCommandData data) {
         PlayerChat chat = PlayerChat.of(getPlugin());
         if (hasPermission("rsbfx.toggle")) {
-            chat.send(getAudience(), getMessage().get("wrongUsage.toggle.on"));
-            chat.send(getAudience(), getMessage().get("wrongUsage.toggle.off"));
+            chat.send(getAudience(), getMessage().get("wrongUsage.toggle.enable"));
+            chat.send(getAudience(), getMessage().get("wrongUsage.toggle.disable"));
         }
     }
 
     @Override
     public List<String> tabComplete(RSCommandData data) {
-        String on = getCommand().get("toggle.on");
-        String off = getCommand().get("toggle.off");
+        String on = getCommand().get("toggle.enable");
+        String off = getCommand().get("toggle.disable");
         if (data.length(1)) {
             List<String> list = new ArrayList<>();
             if (hasPermission("rsbfx.toggle")) {

@@ -2,23 +2,22 @@ package kr.rtuserver.bloodfx.packet;
 
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.ListenerPriority;
-import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.events.PacketEvent;
 import kr.rtuserver.bloodfx.RSBloodFX;
 import kr.rtuserver.bloodfx.configuration.EffectConfig;
 import kr.rtuserver.bloodfx.particle.ToggleManager;
+import kr.rtuserver.framework.bukkit.api.dependencies.RSPacketListener;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 
-public class BloodHeartParticle extends PacketAdapter {
+public class BloodHeartParticle extends RSPacketListener {
 
     private final ToggleManager manager;
     private final EffectConfig config;
 
     public BloodHeartParticle(RSBloodFX plugin) {
-        super((new AdapterParameteters())
-                .plugin(plugin)
+        super(plugin, new AdapterParameteters()
                 .listenerPriority(ListenerPriority.HIGHEST)
                 .types(PacketType.Play.Server.WORLD_PARTICLES)
                 .optionAsync());
@@ -26,6 +25,7 @@ public class BloodHeartParticle extends PacketAdapter {
         this.config = plugin.getEffectConfig();
     }
 
+    @Override
     public void onPacketSending(PacketEvent event) {
         Player player = event.getPlayer();
         PacketContainer packet = event.getPacket();

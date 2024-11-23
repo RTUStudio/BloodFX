@@ -31,18 +31,17 @@ public class EntityDamageByEntity extends RSListener {
     private void onEntityDamageByEntity(EntityDamageByEntityEvent e) {
         Entity victim = e.getEntity();
         Entity attacker = e.getDamager();
-        String namespacedKey = victim.getType().getKey().toString();
-        if (!(attacker instanceof Projectile)) {
-            Location hitLoc = HitLocation.fromMelee((LivingEntity) attacker, victim, effectConfig.getParticleAccuracy());
-            for (String type : particleConfig.getMap().keySet()) {
-                if (namespacedKey.equalsIgnoreCase(type)) {
-                    Material material = particleConfig.getMap().getOrDefault(type, effectConfig.getParticleDefault());
-                    BloodEvent event = new BloodEvent(attacker, victim, hitLoc, material);
-                    Bukkit.getPluginManager().callEvent(event);
-                    if (!event.isCancelled())
-                        ParticleUtil.spawn(victim.getWorld(), hitLoc, material, effectConfig.getParticleAmount());
-                }
-            }
-        }
+        String namespacedKey = victim.getType().getKey().toString().toLowerCase();
+
+        Location hitLoc;
+        if (attacker instanceof Projectile projectile) {
+            hitLoc = HitLocation.fromProjectile(projectile, victim, effectConfig.getParticleAccuracy());
+        } else hitLoc = HitLocation.fromMelee((LivingEntity) attacker, victim, effectConfig.getParticleAccuracy());
+
+        Material material = particleConfig.getMap().getOrDefault(namespacedKey, particleConfig.getDefaultParticle());
+        BloodEvent event = new BloodEvent(attacker, victim, hitLoc, material);
+        Bukkit.getPluginManager().callEvent(event);
+        if (!event.isCancelled())
+            ParticleUtil.spawn(victim.getWorld(), hitLoc, material, effectConfig.getParticleAmount());
     }
 }

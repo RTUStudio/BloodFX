@@ -10,7 +10,6 @@ public class EffectConfig extends RSConfiguration {
 
     private boolean vanillaParticle = false;
     private boolean precisionLocation = false;
-    private Material particleDefault = Material.REDSTONE_BLOCK;
     private double particleAccuracy = 0.5;
     private int particleAmount = 15;
 

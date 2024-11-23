@@ -15,6 +15,8 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.ProjectileHitEvent;
 
+import java.util.Objects;
+
 public class ProjectileHit extends RSListener {
 
     private final EffectConfig effectConfig;
@@ -29,18 +31,15 @@ public class ProjectileHit extends RSListener {
     @EventHandler
     private void onProjectileHit(ProjectileHitEvent e) {
         Entity victim = e.getHitEntity();
+
         if (victim instanceof LivingEntity victimL) {
             String namespacedKey = victim.getType().getKey().toString();
             Location hitLoc = HitLocation.fromProjectile(e.getEntity(), victimL, effectConfig.getParticleAccuracy());
-            for (String type : particleConfig.getMap().keySet()) {
-                if (namespacedKey.equalsIgnoreCase(type)) {
-                    Material material = particleConfig.getMap().getOrDefault(type, effectConfig.getParticleDefault());
-                    BloodEvent event = new BloodEvent(e.getEntity(), victim, hitLoc, material);
-                    Bukkit.getPluginManager().callEvent(event);
-                    if (!event.isCancelled())
-                        ParticleUtil.spawn(victim.getWorld(), hitLoc, material, effectConfig.getParticleAmount());
-                }
-            }
+            Material material = particleConfig.getMap().getOrDefault(namespacedKey, particleConfig.getDefaultParticle());
+            BloodEvent event = new BloodEvent(e.getEntity(), victim, hitLoc, material);
+            Bukkit.getPluginManager().callEvent(event);
+            if (!event.isCancelled())
+                ParticleUtil.spawn(victim.getWorld(), hitLoc, material, effectConfig.getParticleAmount());
         }
     }
 }

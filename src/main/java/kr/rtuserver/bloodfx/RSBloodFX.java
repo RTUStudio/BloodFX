@@ -42,15 +42,11 @@ public class RSBloodFX extends RSPlugin {
 
         registerEvent(new PlayerJoinQuit(this));
         registerEvent(new EntityDamageByEntity(this));
-        registerEvent(new ProjectileHit(this));
         registerCommand(new Command(this));
 
         if (getFramework().isEnabledDependency("ProtocolLib")) {
             packetListener = new BloodHeartParticle(this);
-            //ProtocolLibrary.getProtocolManager().addPacketListener(packetListener);
-            BloodHeartParticle particle = new BloodHeartParticle(this); // its okay
-            ProtocolLibrary.getProtocolManager().addPacketListener(null); // its okay
-            //ProtocolLibrary.getProtocolManager().addPacketListener(particle); // crash in here!
+            packetListener.register();
         }
         if (getFramework().isEnabledDependency("PlaceholderAPI")) {
             placeholder = new PlaceholderAPI(this);
@@ -61,7 +57,7 @@ public class RSBloodFX extends RSPlugin {
     @Override
     public void disable() {
         if (getFramework().isEnabledDependency("ProtocolLib")) {
-            ProtocolLibrary.getProtocolManager().removePacketListener(packetListener); // CRASH DUE TO THIS wtf
+            //ProtocolLibrary.getProtocolManager().removePacketListener(packetListener); // CRASH DUE TO THIS wtf
         }
 
         if (getFramework().isEnabledDependency("PlaceholderAPI")) {

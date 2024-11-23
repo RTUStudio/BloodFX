@@ -40,8 +40,8 @@ public class ParticleConfig extends RSConfiguration {
     }
 
     private String namespacedKey(String value) {
-        if (value.contains(":")) return value;
-        else return "minecraft:" + value;
+        if (value.contains(":")) return value.toLowerCase();
+        else return "minecraft:" + value.toLowerCase();
     }
 
     private Material parse(String value) {
