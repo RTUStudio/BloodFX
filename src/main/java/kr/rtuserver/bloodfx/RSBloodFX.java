@@ -57,7 +57,7 @@ public class RSBloodFX extends RSPlugin {
     @Override
     public void disable() {
         if (getFramework().isEnabledDependency("ProtocolLib")) {
-            //ProtocolLibrary.getProtocolManager().removePacketListener(packetListener); // CRASH DUE TO THIS wtf
+            packetListener.unregister();
         }
 
         if (getFramework().isEnabledDependency("PlaceholderAPI")) {
