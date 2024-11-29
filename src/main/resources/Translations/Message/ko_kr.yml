@@ -1,5 +1,3 @@
-# 비어있다면 플러그인의 내장 기본 Prefix를 씁니다
-# MiniMessage 형식: https://webui.advntr.dev/
 wrongUsage:
   toggle:
     enable: "<white> - /rsbfx 활성화</white>"

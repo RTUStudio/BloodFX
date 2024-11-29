@@ -1,0 +1,7 @@
+wrongUsage:
+  toggle:
+    enable: "<white> - /rsbfx enable</white>"
+    disable: "<white> - /rsbfx disable</white>"
+toggle:
+  enable: "<white>Blood particle effect has been <green>enabled</green></white>"
+  disable: "<white>Blood particle effect has been <red>disabled</red></white>"
