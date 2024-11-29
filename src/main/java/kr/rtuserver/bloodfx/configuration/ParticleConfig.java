@@ -5,7 +5,6 @@ import kr.rtuserver.framework.bukkit.api.config.RSConfiguration;
 import lombok.Getter;
 import org.bukkit.Material;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 

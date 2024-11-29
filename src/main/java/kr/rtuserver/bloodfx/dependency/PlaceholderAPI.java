@@ -2,7 +2,6 @@ package kr.rtuserver.bloodfx.dependency;
 
 import kr.rtuserver.bloodfx.RSBloodFX;
 import kr.rtuserver.bloodfx.particle.ToggleManager;
-import kr.rtuserver.framework.bukkit.api.RSPlugin;
 import kr.rtuserver.framework.bukkit.api.dependencies.RSPlaceholder;
 import org.bukkit.OfflinePlayer;
 

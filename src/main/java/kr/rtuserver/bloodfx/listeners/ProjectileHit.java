@@ -15,8 +15,6 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.ProjectileHitEvent;
 
-import java.util.Objects;
-
 public class ProjectileHit extends RSListener {
 
     private final EffectConfig effectConfig;

@@ -1,13 +1,11 @@
 package kr.rtuserver.bloodfx;
 
-import com.comphenix.protocol.ProtocolLibrary;
 import kr.rtuserver.bloodfx.commands.Command;
 import kr.rtuserver.bloodfx.configuration.EffectConfig;
 import kr.rtuserver.bloodfx.configuration.ParticleConfig;
 import kr.rtuserver.bloodfx.dependency.PlaceholderAPI;
 import kr.rtuserver.bloodfx.listeners.EntityDamageByEntity;
 import kr.rtuserver.bloodfx.listeners.PlayerJoinQuit;
-import kr.rtuserver.bloodfx.listeners.ProjectileHit;
 import kr.rtuserver.bloodfx.packet.BloodHeartParticle;
 import kr.rtuserver.bloodfx.particle.ToggleManager;
 import kr.rtuserver.framework.bukkit.api.RSPlugin;

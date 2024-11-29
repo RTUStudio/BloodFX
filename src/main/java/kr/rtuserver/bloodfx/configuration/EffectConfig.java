@@ -3,7 +3,6 @@ package kr.rtuserver.bloodfx.configuration;
 import kr.rtuserver.framework.bukkit.api.RSPlugin;
 import kr.rtuserver.framework.bukkit.api.config.RSConfiguration;
 import lombok.Getter;
-import org.bukkit.Material;
 
 @Getter
 public class EffectConfig extends RSConfiguration {
