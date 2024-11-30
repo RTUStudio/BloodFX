@@ -24,11 +24,9 @@ public class ParticleConfig extends RSConfiguration {
         getConfig().setComment("", """
                 Mob: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html
                 Material: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
-                Particle: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Particle.html
                 
                 예시 / Example
-                [Mob]: material:[Material]
-                [Mob]: particle:[Particle]""");
+                [Mob]: [Material]""");
         defaultParticle = parse(getString("DEFAULT", "REDSTONE_BLOCK", """
                 기본 파티클
                 Default particle"""));
