@@ -20,8 +20,12 @@ public class ToggleManager {
 
     public void addPlayer(UUID uuid) {
         Storage storage = plugin.getStorage();
-        storage.add("Toggle", JSON.of("uuid", uuid.toString()).append("toggle", true).get());
-        map.put(uuid, true);
+        storage.get("Toggle", Pair.of("uuid", uuid.toString())).thenAccept(result -> {
+            if (result == null || result.isEmpty()) {
+                storage.add("Toggle", JSON.of("uuid", uuid.toString()).append("toggle", true).get());
+                map.put(uuid, true);
+            } else map.put(uuid, result.get(0).get("toggle").getAsBoolean());
+        });
     }
 
     public void removePlayer(UUID uuid) {
