@@ -32,11 +32,11 @@ public class BloodEvent extends Event implements Cancellable {
         this.material = material;
     }
 
-    public HandlerList getHandlers() {
+    public static HandlerList getHandlerList() {
         return handlers;
     }
 
-    public static HandlerList getHandlerList() {
+    public HandlerList getHandlers() {
         return handlers;
     }
 }

@@ -6,8 +6,8 @@ import kr.rtuserver.bloodfx.configuration.ParticleConfig;
 import kr.rtuserver.bloodfx.dependency.PlaceholderAPI;
 import kr.rtuserver.bloodfx.listeners.EntityDamageByEntity;
 import kr.rtuserver.bloodfx.listeners.PlayerJoinQuit;
+import kr.rtuserver.bloodfx.manager.ToggleManager;
 import kr.rtuserver.bloodfx.packet.BloodHeartParticle;
-import kr.rtuserver.bloodfx.particle.ToggleManager;
 import kr.rtuserver.framework.bukkit.api.RSPlugin;
 import lombok.Getter;
 import org.bukkit.permissions.PermissionDefault;
@@ -57,7 +57,6 @@ public class RSBloodFX extends RSPlugin {
         if (getFramework().isEnabledDependency("ProtocolLib")) {
             packetListener.unregister();
         }
-
         if (getFramework().isEnabledDependency("PlaceholderAPI")) {
             placeholder.unregister();
         }

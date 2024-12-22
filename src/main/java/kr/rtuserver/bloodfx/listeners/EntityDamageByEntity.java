@@ -16,7 +16,7 @@ import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
-public class EntityDamageByEntity extends RSListener {
+public class EntityDamageByEntity extends RSListener<RSBloodFX> {
 
     private final EffectConfig effectConfig;
     private final ParticleConfig particleConfig;

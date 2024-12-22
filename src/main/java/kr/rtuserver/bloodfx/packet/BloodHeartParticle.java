@@ -6,12 +6,12 @@ import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.events.PacketEvent;
 import kr.rtuserver.bloodfx.RSBloodFX;
 import kr.rtuserver.bloodfx.configuration.EffectConfig;
-import kr.rtuserver.bloodfx.particle.ToggleManager;
+import kr.rtuserver.bloodfx.manager.ToggleManager;
 import kr.rtuserver.framework.bukkit.api.dependencies.RSPacketListener;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 
-public class BloodHeartParticle extends RSPacketListener {
+public class BloodHeartParticle extends RSPacketListener<RSBloodFX> {
 
     private final ToggleManager manager;
     private final EffectConfig config;

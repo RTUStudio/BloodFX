@@ -1,6 +1,6 @@
 package kr.rtuserver.bloodfx.configuration;
 
-import kr.rtuserver.framework.bukkit.api.RSPlugin;
+import kr.rtuserver.bloodfx.RSBloodFX;
 import kr.rtuserver.framework.bukkit.api.config.RSConfiguration;
 import lombok.Getter;
 import org.bukkit.Material;
@@ -9,12 +9,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Getter
-public class ParticleConfig extends RSConfiguration {
+public class ParticleConfig extends RSConfiguration<RSBloodFX> {
 
-    private Material defaultParticle = Material.REDSTONE_BLOCK;
     private final Map<String, Material> map = new HashMap<>();
+    private Material defaultParticle = Material.REDSTONE_BLOCK;
 
-    public ParticleConfig(RSPlugin plugin) {
+    public ParticleConfig(RSBloodFX plugin) {
         super(plugin, "Particle.yml", null);
         setup(this);
     }
@@ -24,7 +24,7 @@ public class ParticleConfig extends RSConfiguration {
         getConfig().setComment("", """
                 Mob: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html
                 Material: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
-                
+                                
                 예시 / Example
                 [Mob]: [Material]""");
         defaultParticle = parse(getString("DEFAULT", "REDSTONE_BLOCK", """

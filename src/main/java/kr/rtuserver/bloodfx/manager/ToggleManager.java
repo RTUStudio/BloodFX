@@ -1,4 +1,4 @@
-package kr.rtuserver.bloodfx.particle;
+package kr.rtuserver.bloodfx.manager;
 
 import kr.rtuserver.bloodfx.RSBloodFX;
 import kr.rtuserver.framework.bukkit.api.storage.Storage;

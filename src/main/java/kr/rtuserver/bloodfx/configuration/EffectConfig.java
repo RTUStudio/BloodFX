@@ -1,18 +1,18 @@
 package kr.rtuserver.bloodfx.configuration;
 
-import kr.rtuserver.framework.bukkit.api.RSPlugin;
+import kr.rtuserver.bloodfx.RSBloodFX;
 import kr.rtuserver.framework.bukkit.api.config.RSConfiguration;
 import lombok.Getter;
 
 @Getter
-public class EffectConfig extends RSConfiguration {
+public class EffectConfig extends RSConfiguration<RSBloodFX> {
 
     private boolean vanillaParticle = false;
     private boolean precisionLocation = false;
     private double particleAccuracy = 0.5;
     private int particleAmount = 15;
 
-    public EffectConfig(RSPlugin plugin) {
+    public EffectConfig(RSBloodFX plugin) {
         super(plugin, "Effect.yml", null);
         setup(this);
     }

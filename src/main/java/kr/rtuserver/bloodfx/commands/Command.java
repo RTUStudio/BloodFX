@@ -3,7 +3,7 @@ package kr.rtuserver.bloodfx.commands;
 import kr.rtuserver.bloodfx.RSBloodFX;
 import kr.rtuserver.bloodfx.configuration.EffectConfig;
 import kr.rtuserver.bloodfx.configuration.ParticleConfig;
-import kr.rtuserver.bloodfx.particle.ToggleManager;
+import kr.rtuserver.bloodfx.manager.ToggleManager;
 import kr.rtuserver.framework.bukkit.api.command.RSCommand;
 import kr.rtuserver.framework.bukkit.api.command.RSCommandData;
 import kr.rtuserver.framework.bukkit.api.utility.player.PlayerChat;
@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Command extends RSCommand {
+public class Command extends RSCommand<RSBloodFX> {
 
     private final EffectConfig effectConfig;
     private final ParticleConfig particleConfig;

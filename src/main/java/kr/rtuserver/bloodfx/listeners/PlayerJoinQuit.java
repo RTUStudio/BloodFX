@@ -1,7 +1,7 @@
 package kr.rtuserver.bloodfx.listeners;
 
 import kr.rtuserver.bloodfx.RSBloodFX;
-import kr.rtuserver.bloodfx.particle.ToggleManager;
+import kr.rtuserver.bloodfx.manager.ToggleManager;
 import kr.rtuserver.framework.bukkit.api.listener.RSListener;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;

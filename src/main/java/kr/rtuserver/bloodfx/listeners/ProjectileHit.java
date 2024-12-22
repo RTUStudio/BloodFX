@@ -15,7 +15,7 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.ProjectileHitEvent;
 
-public class ProjectileHit extends RSListener {
+public class ProjectileHit extends RSListener<RSBloodFX> {
 
     private final EffectConfig effectConfig;
     private final ParticleConfig particleConfig;
