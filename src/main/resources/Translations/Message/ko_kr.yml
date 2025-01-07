@@ -1,7 +1,3 @@
-wrongUsage:
-  toggle:
-    enable: "<white> - /rsbfx 활성화</white>"
-    disable: "<white> - /rsbfx 비활성화</white>"
-toggle:
-  enable: "<white>혈흔 파티클이 <green>활성화</green>되었습니다</white>"
-  disable: "<white>혈흔 파티클이 <red>비활성화</red>되었습니다</white>"
+enable: "<white>혈흔 파티클이 <green>활성화</green>되었습니다</white>"
+disable: "<white>혈흔 파티클이 <red>비활성화</red>되었습니다</white>"
+

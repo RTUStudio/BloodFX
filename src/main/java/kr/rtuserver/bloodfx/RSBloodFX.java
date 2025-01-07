@@ -31,16 +31,17 @@ public class RSBloodFX extends RSPlugin {
         instance = this;
         getConfigurations().initStorage("Toggle");
 
-        registerPermission("rsbfx.toggle", PermissionDefault.TRUE);
-
         effectConfig = new EffectConfig(this);
         particleConfig = new ParticleConfig(this);
 
         toggleManager = new ToggleManager(this);
 
+        registerPermission(getName() + ".toggle", PermissionDefault.TRUE);
+
         registerEvent(new PlayerJoinQuit(this));
         registerEvent(new EntityDamageByEntity(this));
-        registerCommand(new Command(this));
+
+        registerCommand(new Command(this), true);
 
         if (getFramework().isEnabledDependency("ProtocolLib")) {
             packetListener = new BloodHeartParticle(this);
