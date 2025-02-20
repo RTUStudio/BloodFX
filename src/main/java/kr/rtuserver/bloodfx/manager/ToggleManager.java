@@ -15,8 +15,15 @@ import java.util.UUID;
 public class ToggleManager {
 
     private final RSBloodFX plugin;
-    @Getter
     private final Map<UUID, Boolean> map = new HashMap<>();
+
+    public void put(UUID uuid, boolean value) {
+        map.put(uuid, value);
+    }
+
+    public boolean get(UUID uuid) {
+        return map.getOrDefault(uuid, true);
+    }
 
     public void addPlayer(UUID uuid) {
         Storage storage = plugin.getStorage();

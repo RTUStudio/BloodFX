@@ -32,7 +32,7 @@ public class BloodHeartParticle extends RSPacketListener<RSBloodFX> {
         if (event.getPacketType() != PacketType.Play.Server.WORLD_PARTICLES)
             return;
         if (packet.getNewParticles().read(0).getParticle() == Particle.DAMAGE_INDICATOR) {
-            boolean toggle = manager.getMap().getOrDefault(player.getUniqueId(), true);
+            boolean toggle = manager.get(player.getUniqueId());
             if (!config.isVanillaParticle() || toggle) event.setCancelled(true);
         }
     }

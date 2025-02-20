@@ -24,7 +24,7 @@ public class ParticleConfig extends RSConfiguration<RSBloodFX> {
         getConfig().setComment("", """
                 Mob: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html
                 Material: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
-                                
+                
                 예시 / Example
                 [Mob]: [Material]""");
         defaultParticle = parse(getString("DEFAULT", "REDSTONE_BLOCK", """

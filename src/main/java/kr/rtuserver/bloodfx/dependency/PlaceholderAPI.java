@@ -17,7 +17,7 @@ public class PlaceholderAPI extends RSPlaceholder<RSBloodFX> {
     @Override
     public String request(OfflinePlayer offlinePlayer, String[] params) {
         if ("toggle".equalsIgnoreCase(params[0])) {
-            return manager.getMap().getOrDefault(offlinePlayer.getUniqueId(), false) ? "ON" : "OFF";
+            return manager.get(offlinePlayer.getUniqueId()) ? "ON" : "OFF";
         }
         return "ERROR";
     }

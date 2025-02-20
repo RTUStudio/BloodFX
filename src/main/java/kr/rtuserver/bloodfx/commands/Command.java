@@ -9,9 +9,6 @@ import kr.rtuserver.framework.bukkit.api.command.RSCommandData;
 import kr.rtuserver.framework.bukkit.api.utility.player.PlayerChat;
 import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Command extends RSCommand<RSBloodFX> {
 
     private final EffectConfig effectConfig;
@@ -30,8 +27,7 @@ public class Command extends RSCommand<RSBloodFX> {
         PlayerChat chat = PlayerChat.of(getPlugin());
         if (getSender() instanceof Player player) {
             if (hasPermission(getPlugin().getName() + ".toggle")) {
-                boolean isVisible = toggleManager.getMap().getOrDefault(player.getUniqueId(), false);
-                if (isVisible) {
+                if (toggleManager.get(player.getUniqueId())) {
                     toggleManager.off(player.getUniqueId());
                     chat.announce(getSender(), getMessage().get(getSender(), "disable"));
                 } else {
