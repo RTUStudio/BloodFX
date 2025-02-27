@@ -1,4 +1,4 @@
-package kr.rtuserver.bloodfx.events;
+package com.github.ipecter.rtustudio.bloodfx.events;
 
 import lombok.Getter;
 import lombok.Setter;

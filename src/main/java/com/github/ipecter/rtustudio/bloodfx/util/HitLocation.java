@@ -1,4 +1,4 @@
-package kr.rtuserver.bloodfx.util;
+package com.github.ipecter.rtustudio.bloodfx.util;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;

@@ -1,9 +1,8 @@
-package kr.rtuserver.bloodfx.manager;
+package com.github.ipecter.rtustudio.bloodfx.manager;
 
-import kr.rtuserver.bloodfx.RSBloodFX;
+import com.github.ipecter.rtustudio.bloodfx.BloodFX;
 import kr.rtuserver.framework.bukkit.api.storage.Storage;
 import kr.rtuserver.framework.bukkit.api.utility.platform.JSON;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -14,7 +13,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ToggleManager {
 
-    private final RSBloodFX plugin;
+    private final BloodFX plugin;
     private final Map<UUID, Boolean> map = new HashMap<>();
 
     public void put(UUID uuid, boolean value) {

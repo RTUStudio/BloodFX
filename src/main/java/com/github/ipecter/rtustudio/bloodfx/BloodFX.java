@@ -1,21 +1,19 @@
-package kr.rtuserver.bloodfx;
+package com.github.ipecter.rtustudio.bloodfx;
 
-import kr.rtuserver.bloodfx.commands.Command;
-import kr.rtuserver.bloodfx.configuration.EffectConfig;
-import kr.rtuserver.bloodfx.configuration.ParticleConfig;
-import kr.rtuserver.bloodfx.dependency.PlaceholderAPI;
-import kr.rtuserver.bloodfx.listeners.EntityDamageByEntity;
-import kr.rtuserver.bloodfx.listeners.PlayerJoinQuit;
-import kr.rtuserver.bloodfx.manager.ToggleManager;
-import kr.rtuserver.bloodfx.packet.BloodHeartParticle;
+import com.github.ipecter.rtustudio.bloodfx.listeners.PlayerJoinQuit;
+import com.github.ipecter.rtustudio.bloodfx.manager.ToggleManager;
+import com.github.ipecter.rtustudio.bloodfx.commands.Command;
+import com.github.ipecter.rtustudio.bloodfx.configuration.EffectConfig;
+import com.github.ipecter.rtustudio.bloodfx.configuration.ParticleConfig;
+import com.github.ipecter.rtustudio.bloodfx.dependency.PlaceholderAPI;
+import com.github.ipecter.rtustudio.bloodfx.listeners.EntityDamageByEntity;
+import com.github.ipecter.rtustudio.bloodfx.packet.BloodHeartParticle;
 import kr.rtuserver.framework.bukkit.api.RSPlugin;
 import lombok.Getter;
 import org.bukkit.permissions.PermissionDefault;
 
-public class RSBloodFX extends RSPlugin {
+public class BloodFX extends RSPlugin {
 
-    @Getter
-    private static RSBloodFX instance;
     @Getter
     private EffectConfig effectConfig;
     @Getter
@@ -28,7 +26,6 @@ public class RSBloodFX extends RSPlugin {
 
     @Override
     public void enable() {
-        instance = this;
         getConfigurations().initStorage("Toggle");
 
         effectConfig = new EffectConfig(this);

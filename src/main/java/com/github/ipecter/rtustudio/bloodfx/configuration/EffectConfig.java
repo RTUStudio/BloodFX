@@ -1,18 +1,18 @@
-package kr.rtuserver.bloodfx.configuration;
+package com.github.ipecter.rtustudio.bloodfx.configuration;
 
-import kr.rtuserver.bloodfx.RSBloodFX;
+import com.github.ipecter.rtustudio.bloodfx.BloodFX;
 import kr.rtuserver.framework.bukkit.api.config.RSConfiguration;
 import lombok.Getter;
 
 @Getter
-public class EffectConfig extends RSConfiguration<RSBloodFX> {
+public class EffectConfig extends RSConfiguration<BloodFX> {
 
     private boolean vanillaParticle = false;
     private boolean precisionLocation = false;
     private double particleAccuracy = 0.5;
     private int particleAmount = 15;
 
-    public EffectConfig(RSBloodFX plugin) {
+    public EffectConfig(BloodFX plugin) {
         super(plugin, "Effect.yml", null);
         setup(this);
     }

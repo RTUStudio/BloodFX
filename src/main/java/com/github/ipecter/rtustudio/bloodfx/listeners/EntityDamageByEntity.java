@@ -1,11 +1,11 @@
-package kr.rtuserver.bloodfx.listeners;
+package com.github.ipecter.rtustudio.bloodfx.listeners;
 
-import kr.rtuserver.bloodfx.RSBloodFX;
-import kr.rtuserver.bloodfx.configuration.EffectConfig;
-import kr.rtuserver.bloodfx.configuration.ParticleConfig;
-import kr.rtuserver.bloodfx.events.BloodEvent;
-import kr.rtuserver.bloodfx.manager.ToggleManager;
-import kr.rtuserver.bloodfx.util.HitLocation;
+import com.github.ipecter.rtustudio.bloodfx.BloodFX;
+import com.github.ipecter.rtustudio.bloodfx.events.BloodEvent;
+import com.github.ipecter.rtustudio.bloodfx.manager.ToggleManager;
+import com.github.ipecter.rtustudio.bloodfx.configuration.EffectConfig;
+import com.github.ipecter.rtustudio.bloodfx.configuration.ParticleConfig;
+import com.github.ipecter.rtustudio.bloodfx.util.HitLocation;
 import kr.rtuserver.framework.bukkit.api.listener.RSListener;
 import org.bukkit.*;
 import org.bukkit.block.data.BlockData;
@@ -16,13 +16,13 @@ import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
-public class EntityDamageByEntity extends RSListener<RSBloodFX> {
+public class EntityDamageByEntity extends RSListener<BloodFX> {
 
     private final EffectConfig effectConfig;
     private final ParticleConfig particleConfig;
     private final ToggleManager manager;
 
-    public EntityDamageByEntity(RSBloodFX plugin) {
+    public EntityDamageByEntity(BloodFX plugin) {
         super(plugin);
         this.effectConfig = plugin.getEffectConfig();
         this.particleConfig = plugin.getParticleConfig();

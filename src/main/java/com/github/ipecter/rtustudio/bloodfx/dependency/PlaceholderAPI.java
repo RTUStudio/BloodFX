@@ -1,15 +1,15 @@
-package kr.rtuserver.bloodfx.dependency;
+package com.github.ipecter.rtustudio.bloodfx.dependency;
 
-import kr.rtuserver.bloodfx.RSBloodFX;
-import kr.rtuserver.bloodfx.manager.ToggleManager;
+import com.github.ipecter.rtustudio.bloodfx.BloodFX;
+import com.github.ipecter.rtustudio.bloodfx.manager.ToggleManager;
 import kr.rtuserver.framework.bukkit.api.dependencies.RSPlaceholder;
 import org.bukkit.OfflinePlayer;
 
-public class PlaceholderAPI extends RSPlaceholder<RSBloodFX> {
+public class PlaceholderAPI extends RSPlaceholder<BloodFX> {
 
     private final ToggleManager manager;
 
-    public PlaceholderAPI(RSBloodFX plugin) {
+    public PlaceholderAPI(BloodFX plugin) {
         super(plugin);
         this.manager = plugin.getToggleManager();
     }

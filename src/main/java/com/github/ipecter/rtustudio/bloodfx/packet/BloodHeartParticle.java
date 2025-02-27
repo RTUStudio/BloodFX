@@ -1,22 +1,22 @@
-package kr.rtuserver.bloodfx.packet;
+package com.github.ipecter.rtustudio.bloodfx.packet;
 
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.ListenerPriority;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.events.PacketEvent;
-import kr.rtuserver.bloodfx.RSBloodFX;
-import kr.rtuserver.bloodfx.configuration.EffectConfig;
-import kr.rtuserver.bloodfx.manager.ToggleManager;
+import com.github.ipecter.rtustudio.bloodfx.BloodFX;
+import com.github.ipecter.rtustudio.bloodfx.manager.ToggleManager;
+import com.github.ipecter.rtustudio.bloodfx.configuration.EffectConfig;
 import kr.rtuserver.framework.bukkit.api.dependencies.RSPacketListener;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 
-public class BloodHeartParticle extends RSPacketListener<RSBloodFX> {
+public class BloodHeartParticle extends RSPacketListener<BloodFX> {
 
     private final ToggleManager manager;
     private final EffectConfig config;
 
-    public BloodHeartParticle(RSBloodFX plugin) {
+    public BloodHeartParticle(BloodFX plugin) {
         super(plugin, new AdapterParameteters()
                 .listenerPriority(ListenerPriority.HIGHEST)
                 .types(PacketType.Play.Server.WORLD_PARTICLES)

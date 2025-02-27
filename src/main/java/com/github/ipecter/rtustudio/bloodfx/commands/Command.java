@@ -1,22 +1,22 @@
-package kr.rtuserver.bloodfx.commands;
+package com.github.ipecter.rtustudio.bloodfx.commands;
 
-import kr.rtuserver.bloodfx.RSBloodFX;
-import kr.rtuserver.bloodfx.configuration.EffectConfig;
-import kr.rtuserver.bloodfx.configuration.ParticleConfig;
-import kr.rtuserver.bloodfx.manager.ToggleManager;
+import com.github.ipecter.rtustudio.bloodfx.BloodFX;
+import com.github.ipecter.rtustudio.bloodfx.configuration.EffectConfig;
+import com.github.ipecter.rtustudio.bloodfx.configuration.ParticleConfig;
+import com.github.ipecter.rtustudio.bloodfx.manager.ToggleManager;
 import kr.rtuserver.framework.bukkit.api.command.RSCommand;
 import kr.rtuserver.framework.bukkit.api.command.RSCommandData;
 import kr.rtuserver.framework.bukkit.api.utility.player.PlayerChat;
 import org.bukkit.entity.Player;
 
-public class Command extends RSCommand<RSBloodFX> {
+public class Command extends RSCommand<BloodFX> {
 
     private final EffectConfig effectConfig;
     private final ParticleConfig particleConfig;
     private final ToggleManager toggleManager;
 
-    public Command(RSBloodFX plugin) {
-        super(plugin, "rsbfx");
+    public Command(BloodFX plugin) {
+        super(plugin, "bloodfx");
         this.effectConfig = plugin.getEffectConfig();
         this.particleConfig = plugin.getParticleConfig();
         this.toggleManager = plugin.getToggleManager();

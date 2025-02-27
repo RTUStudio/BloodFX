@@ -1,6 +1,6 @@
-package kr.rtuserver.bloodfx.configuration;
+package com.github.ipecter.rtustudio.bloodfx.configuration;
 
-import kr.rtuserver.bloodfx.RSBloodFX;
+import com.github.ipecter.rtustudio.bloodfx.BloodFX;
 import kr.rtuserver.framework.bukkit.api.config.RSConfiguration;
 import lombok.Getter;
 import org.bukkit.Material;
@@ -9,12 +9,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Getter
-public class ParticleConfig extends RSConfiguration<RSBloodFX> {
+public class ParticleConfig extends RSConfiguration<BloodFX> {
 
     private final Map<String, Material> map = new HashMap<>();
     private Material defaultParticle = Material.REDSTONE_BLOCK;
 
-    public ParticleConfig(RSBloodFX plugin) {
+    public ParticleConfig(BloodFX plugin) {
         super(plugin, "Particle.yml", null);
         setup(this);
     }

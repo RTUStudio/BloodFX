@@ -1,17 +1,17 @@
-package kr.rtuserver.bloodfx.listeners;
+package com.github.ipecter.rtustudio.bloodfx.listeners;
 
-import kr.rtuserver.bloodfx.RSBloodFX;
-import kr.rtuserver.bloodfx.manager.ToggleManager;
+import com.github.ipecter.rtustudio.bloodfx.BloodFX;
+import com.github.ipecter.rtustudio.bloodfx.manager.ToggleManager;
 import kr.rtuserver.framework.bukkit.api.listener.RSListener;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-public class PlayerJoinQuit extends RSListener<RSBloodFX> {
+public class PlayerJoinQuit extends RSListener<BloodFX> {
 
     private final ToggleManager manager;
 
-    public PlayerJoinQuit(RSBloodFX plugin) {
+    public PlayerJoinQuit(BloodFX plugin) {
         super(plugin);
         this.manager = plugin.getToggleManager();
     }
