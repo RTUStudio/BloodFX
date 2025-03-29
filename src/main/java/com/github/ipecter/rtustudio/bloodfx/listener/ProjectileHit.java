@@ -1,9 +1,9 @@
-package com.github.ipecter.rtustudio.bloodfx.listeners;
+package com.github.ipecter.rtustudio.bloodfx.listener;
 
 import com.github.ipecter.rtustudio.bloodfx.BloodFX;
 import com.github.ipecter.rtustudio.bloodfx.configuration.EffectConfig;
 import com.github.ipecter.rtustudio.bloodfx.configuration.ParticleConfig;
-import com.github.ipecter.rtustudio.bloodfx.events.BloodEvent;
+import com.github.ipecter.rtustudio.bloodfx.event.BloodEvent;
 import com.github.ipecter.rtustudio.bloodfx.manager.ToggleManager;
 import com.github.ipecter.rtustudio.bloodfx.util.HitLocation;
 import kr.rtuserver.framework.bukkit.api.listener.RSListener;

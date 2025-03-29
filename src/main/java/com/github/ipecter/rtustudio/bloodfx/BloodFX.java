@@ -1,12 +1,12 @@
 package com.github.ipecter.rtustudio.bloodfx;
 
-import com.github.ipecter.rtustudio.bloodfx.listeners.PlayerJoinQuit;
+import com.github.ipecter.rtustudio.bloodfx.listener.PlayerJoinQuit;
 import com.github.ipecter.rtustudio.bloodfx.manager.ToggleManager;
-import com.github.ipecter.rtustudio.bloodfx.commands.Command;
+import com.github.ipecter.rtustudio.bloodfx.command.Command;
 import com.github.ipecter.rtustudio.bloodfx.configuration.EffectConfig;
 import com.github.ipecter.rtustudio.bloodfx.configuration.ParticleConfig;
 import com.github.ipecter.rtustudio.bloodfx.dependency.PlaceholderAPI;
-import com.github.ipecter.rtustudio.bloodfx.listeners.EntityDamageByEntity;
+import com.github.ipecter.rtustudio.bloodfx.listener.EntityDamageByEntity;
 import com.github.ipecter.rtustudio.bloodfx.packet.BloodHeartParticle;
 import kr.rtuserver.framework.bukkit.api.RSPlugin;
 import lombok.Getter;

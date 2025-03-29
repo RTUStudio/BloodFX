@@ -1,4 +1,4 @@
-package com.github.ipecter.rtustudio.bloodfx.listeners;
+package com.github.ipecter.rtustudio.bloodfx.listener;
 
 import com.github.ipecter.rtustudio.bloodfx.BloodFX;
 import com.github.ipecter.rtustudio.bloodfx.manager.ToggleManager;
