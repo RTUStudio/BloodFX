@@ -5,9 +5,9 @@ import com.comphenix.protocol.events.ListenerPriority;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.events.PacketEvent;
 import com.github.ipecter.rtustudio.bloodfx.BloodFX;
-import com.github.ipecter.rtustudio.bloodfx.manager.ToggleManager;
 import com.github.ipecter.rtustudio.bloodfx.configuration.EffectConfig;
-import kr.rtuserver.framework.bukkit.api.dependencies.RSPacketListener;
+import com.github.ipecter.rtustudio.bloodfx.manager.ToggleManager;
+import kr.rtuserver.framework.bukkit.api.dependency.RSPacketListener;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 
@@ -36,4 +36,5 @@ public class BloodHeartParticle extends RSPacketListener<BloodFX> {
             if (!config.isVanillaParticle() || toggle) event.setCancelled(true);
         }
     }
+
 }

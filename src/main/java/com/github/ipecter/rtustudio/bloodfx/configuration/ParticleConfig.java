@@ -1,7 +1,7 @@
 package com.github.ipecter.rtustudio.bloodfx.configuration;
 
 import com.github.ipecter.rtustudio.bloodfx.BloodFX;
-import kr.rtuserver.framework.bukkit.api.config.RSConfiguration;
+import kr.rtuserver.framework.bukkit.api.configuration.RSConfiguration;
 import lombok.Getter;
 import org.bukkit.Material;
 
@@ -46,4 +46,5 @@ public class ParticleConfig extends RSConfiguration<BloodFX> {
         if (material == null) return defaultParticle;
         return material;
     }
+
 }

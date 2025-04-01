@@ -53,4 +53,5 @@ public class EntityDamageByEntity extends RSListener<BloodFX> {
             }
         }
     }
+
 }

@@ -1,7 +1,7 @@
 package com.github.ipecter.rtustudio.bloodfx.configuration;
 
 import com.github.ipecter.rtustudio.bloodfx.BloodFX;
-import kr.rtuserver.framework.bukkit.api.config.RSConfiguration;
+import kr.rtuserver.framework.bukkit.api.configuration.RSConfiguration;
 import lombok.Getter;
 
 @Getter
@@ -31,4 +31,5 @@ public class EffectConfig extends RSConfiguration<BloodFX> {
                 파티클 스폰 수
                 Amount of particle spawn""");
     }
+
 }

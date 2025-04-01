@@ -2,7 +2,7 @@ package com.github.ipecter.rtustudio.bloodfx;
 
 import com.github.ipecter.rtustudio.bloodfx.listener.PlayerJoinQuit;
 import com.github.ipecter.rtustudio.bloodfx.manager.ToggleManager;
-import com.github.ipecter.rtustudio.bloodfx.command.Command;
+import com.github.ipecter.rtustudio.bloodfx.command.MainCommand;
 import com.github.ipecter.rtustudio.bloodfx.configuration.EffectConfig;
 import com.github.ipecter.rtustudio.bloodfx.configuration.ParticleConfig;
 import com.github.ipecter.rtustudio.bloodfx.dependency.PlaceholderAPI;
@@ -38,7 +38,7 @@ public class BloodFX extends RSPlugin {
         registerEvent(new PlayerJoinQuit(this));
         registerEvent(new EntityDamageByEntity(this));
 
-        registerCommand(new Command(this), true);
+        registerCommand(new MainCommand(this), true);
 
         if (getFramework().isEnabledDependency("ProtocolLib")) {
             packetListener = new BloodHeartParticle(this);
@@ -59,4 +59,5 @@ public class BloodFX extends RSPlugin {
             placeholder.unregister();
         }
     }
+
 }

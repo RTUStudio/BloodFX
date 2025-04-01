@@ -8,6 +8,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
+import org.jetbrains.annotations.NotNull;
 
 @Getter
 @Setter
@@ -36,7 +37,8 @@ public class BloodEvent extends Event implements Cancellable {
         return handlers;
     }
 
-    public HandlerList getHandlers() {
+    public @NotNull HandlerList getHandlers() {
         return handlers;
     }
+
 }
