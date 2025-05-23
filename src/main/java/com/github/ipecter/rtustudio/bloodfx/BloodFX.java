@@ -26,7 +26,7 @@ public class BloodFX extends RSPlugin {
 
     @Override
     public void enable() {
-        getConfigurations().initStorage("Toggle");
+        getConfigurations().getStorage().init("Toggle");
 
         effectConfig = new EffectConfig(this);
         particleConfig = new ParticleConfig(this);

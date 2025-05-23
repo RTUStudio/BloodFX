@@ -1,8 +1,8 @@
 package com.github.ipecter.rtustudio.bloodfx.manager;
 
 import com.github.ipecter.rtustudio.bloodfx.BloodFX;
+import kr.rtuserver.framework.bukkit.api.platform.JSON;
 import kr.rtuserver.framework.bukkit.api.storage.Storage;
-import kr.rtuserver.framework.bukkit.api.utility.platform.JSON;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -30,7 +30,7 @@ public class ToggleManager {
             if (result == null || result.isEmpty()) {
                 storage.add("Toggle", JSON.of("uuid", uuid.toString()).append("toggle", true).get());
                 map.put(uuid, true);
-            } else map.put(uuid, result.get(0).get("toggle").getAsBoolean());
+            } else map.put(uuid, result.getFirst().get("toggle").getAsBoolean());
         });
     }
 
@@ -40,13 +40,13 @@ public class ToggleManager {
 
     public void on(UUID uuid) {
         Storage storage = plugin.getStorage();
-        storage.set("Toggle", Pair.of("uuid", uuid.toString()), Pair.of("toggle", true));
+        storage.set("Toggle", Pair.of("uuid", uuid.toString()), JSON.of("toggle", true).get());
         map.put(uuid, true);
     }
 
     public void off(UUID uuid) {
         Storage storage = plugin.getStorage();
-        storage.set("Toggle", Pair.of("uuid", uuid.toString()), Pair.of("toggle", false));
+        storage.set("Toggle", Pair.of("uuid", uuid.toString()), JSON.of("toggle", false).get());
         map.put(uuid, false);
     }
 

@@ -37,8 +37,6 @@ repositories {
 
     maven { url = "https://repo.extendedclip.com/content/repositories/placeholderapi/" } // PlaceholderAPI
     maven { url = "https://repo.dmulloy2.net/repository/public/" } // ProtocolLib
-    maven { url = "https://nexus.scarsz.me/content/groups/public/" } // DiscordSRV
-    maven { url = "https://maven.enginehub.org/repo/" } // WorldGuard
 
     maven { url = "https://mvnrepository.com/artifact/org.projectlombok/lombok" } // Lombok
 }
@@ -71,10 +69,6 @@ dependencies {
     // ThirdParty Plugins
     compileOnly "me.clip:placeholderapi:2.11.6"
     compileOnly "com.comphenix.protocol:ProtocolLib:5.1.0"
-    compileOnly "net.luckperms:api:5.4"
-    compileOnly "com.github.MilkBowl:VaultAPI:1.7.1"
-    compileOnly "com.discordsrv:discordsrv:1.28.0"
-    compileOnly "com.sk89q.worldguard:worldguard-bukkit:7.0.7"
 
     // Lombok
     compileOnly "org.projectlombok:lombok:1.18.36"

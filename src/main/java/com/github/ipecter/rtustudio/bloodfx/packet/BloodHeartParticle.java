@@ -7,7 +7,7 @@ import com.comphenix.protocol.events.PacketEvent;
 import com.github.ipecter.rtustudio.bloodfx.BloodFX;
 import com.github.ipecter.rtustudio.bloodfx.configuration.EffectConfig;
 import com.github.ipecter.rtustudio.bloodfx.manager.ToggleManager;
-import kr.rtuserver.framework.bukkit.api.dependency.RSPacketListener;
+import kr.rtuserver.framework.bukkit.api.integration.RSPacketListener;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 

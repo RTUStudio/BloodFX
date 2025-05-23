@@ -2,7 +2,7 @@ package com.github.ipecter.rtustudio.bloodfx.dependency;
 
 import com.github.ipecter.rtustudio.bloodfx.BloodFX;
 import com.github.ipecter.rtustudio.bloodfx.manager.ToggleManager;
-import kr.rtuserver.framework.bukkit.api.dependency.RSPlaceholder;
+import kr.rtuserver.framework.bukkit.api.integration.RSPlaceholder;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
