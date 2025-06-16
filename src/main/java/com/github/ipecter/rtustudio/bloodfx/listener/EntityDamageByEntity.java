@@ -38,7 +38,8 @@ public class EntityDamageByEntity extends RSListener<BloodFX> {
         Location hitLoc;
         if (attacker instanceof Projectile projectile) {
             hitLoc = HitLocation.fromProjectile(projectile, victim, effectConfig.getParticleAccuracy());
-        } else hitLoc = HitLocation.fromMelee((LivingEntity) attacker, victim, effectConfig.getParticleAccuracy());
+        } else if (attacker instanceof LivingEntity living) hitLoc = HitLocation.fromMelee(living, victim, effectConfig.getParticleAccuracy());
+        else hitLoc = victim.getBoundingBox().getCenter().toLocation(victim.getWorld());
 
         Material material = particleConfig.getMap().getOrDefault(namespacedKey, particleConfig.getDefaultParticle());
         BloodEvent event = new BloodEvent(attacker, victim, hitLoc, material);
