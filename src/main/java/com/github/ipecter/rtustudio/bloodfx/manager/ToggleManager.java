@@ -26,7 +26,7 @@ public class ToggleManager {
 
     public void addPlayer(UUID uuid) {
         Storage storage = plugin.getStorage();
-        storage.get("Toggle", Pair.of("uuid", uuid.toString())).thenAccept(result -> {
+        storage.get("Toggle", JSON.of("uuid", uuid.toString())).thenAccept(result -> {
             if (result == null || result.isEmpty()) {
                 storage.add("Toggle", JSON.of("uuid", uuid.toString()).append("toggle", true).get());
                 map.put(uuid, true);
@@ -40,13 +40,13 @@ public class ToggleManager {
 
     public void on(UUID uuid) {
         Storage storage = plugin.getStorage();
-        storage.set("Toggle", Pair.of("uuid", uuid.toString()), JSON.of("toggle", true).get());
+        storage.set("Toggle", JSON.of("uuid", uuid.toString()), JSON.of("toggle", true));
         map.put(uuid, true);
     }
 
     public void off(UUID uuid) {
         Storage storage = plugin.getStorage();
-        storage.set("Toggle", Pair.of("uuid", uuid.toString()), JSON.of("toggle", false).get());
+        storage.set("Toggle", JSON.of("uuid", uuid.toString()), JSON.of("toggle", false));
         map.put(uuid, false);
     }
 
