@@ -1,10 +1,9 @@
-package com.github.ipecter.rtustudio.bloodfx.manager;
+package kr.rtustudio.bloodfx.manager;
 
-import com.github.ipecter.rtustudio.bloodfx.BloodFX;
-import kr.rtuserver.framework.bukkit.api.platform.JSON;
-import kr.rtuserver.framework.bukkit.api.storage.Storage;
+import kr.rtustudio.bloodfx.BloodFX;
+import kr.rtustudio.framework.bukkit.api.platform.JSON;
+import kr.rtustudio.framework.bukkit.api.storage.Storage;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +27,7 @@ public class ToggleManager {
         Storage storage = plugin.getStorage();
         storage.get("Toggle", JSON.of("uuid", uuid.toString())).thenAccept(result -> {
             if (result == null || result.isEmpty()) {
-                storage.add("Toggle", JSON.of("uuid", uuid.toString()).append("toggle", true).get());
+                storage.add("Toggle", JSON.of("uuid", uuid.toString()).append("toggle", true));
                 map.put(uuid, true);
             } else map.put(uuid, result.getFirst().get("toggle").getAsBoolean());
         });
