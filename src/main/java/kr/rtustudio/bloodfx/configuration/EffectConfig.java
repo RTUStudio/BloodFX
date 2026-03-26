@@ -1,11 +1,11 @@
 package kr.rtustudio.bloodfx.configuration;
 
+import kr.rtustudio.configurate.model.ConfigurationPart;
 import kr.rtustudio.configurate.objectmapping.meta.Comment;
-import kr.rtustudio.framework.bukkit.api.configuration.ConfigurationPart;
 import lombok.Getter;
 
 @Getter
-@SuppressWarnings({"unused", "FieldMayBeFinal"})
+@SuppressWarnings({"unused", "CanBeFinal", "FieldCanBeLocal", "FieldMayBeFinal", "InnerClassMayBeStatic"})
 public class EffectConfig extends ConfigurationPart {
 
     @Comment("""
@@ -19,7 +19,7 @@ public class EffectConfig extends ConfigurationPart {
     private Particle particle;
 
     @Getter
-    public static class Particle extends ConfigurationPart {
+    public class Particle extends ConfigurationPart {
 
         @Comment("""
                 Variance of particle spawn location

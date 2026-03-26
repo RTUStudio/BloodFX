@@ -4,8 +4,8 @@ import kr.rtustudio.bloodfx.BloodFX;
 import kr.rtustudio.bloodfx.configuration.EffectConfig;
 import kr.rtustudio.bloodfx.configuration.ParticleConfig;
 import kr.rtustudio.bloodfx.manager.ToggleManager;
+import kr.rtustudio.framework.bukkit.api.command.CommandArgs;
 import kr.rtustudio.framework.bukkit.api.command.RSCommand;
-import kr.rtustudio.framework.bukkit.api.command.RSCommandData;
 import org.bukkit.entity.Player;
 
 public class MainCommand extends RSCommand<BloodFX> {
@@ -18,25 +18,25 @@ public class MainCommand extends RSCommand<BloodFX> {
     }
 
     @Override
-    public Result execute(RSCommandData data) {
+    public Result execute(CommandArgs data) {
         Player player = player();
         if (player == null) return Result.ONLY_PLAYER;
-        if (hasPermission(getPlugin().getName() + ".toggle")) {
+        if (hasPermission("toggle")) {
             if (toggleManager.get(player.getUniqueId())) {
                 toggleManager.off(player.getUniqueId());
-                chat().announce(audience(), message().get(sender(), "disable"));
+                notifier.announce(message.get(player, "disable"));
             } else {
                 toggleManager.on(player.getUniqueId());
-                chat().announce(audience(), message().get(sender(), "enable"));
+                notifier.announce(message.get(player, "enable"));
             }
             return Result.SUCCESS;
         } else return Result.NO_PERMISSION;
     }
 
     @Override
-    public void reload(RSCommandData data) {
-        getPlugin().reloadConfiguration(EffectConfig.class);
-        getPlugin().reloadConfiguration(ParticleConfig.class);
+    public void reload(CommandArgs data) {
+        plugin.reloadConfiguration(EffectConfig.class);
+        plugin.reloadConfiguration(ParticleConfig.class);
     }
 
 }

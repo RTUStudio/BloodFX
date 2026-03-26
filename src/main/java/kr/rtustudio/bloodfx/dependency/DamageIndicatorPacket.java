@@ -1,4 +1,4 @@
-package kr.rtustudio.bloodfx.dependency;
+package kr.rtustudio.bloodfx.integration;
 
 import com.github.retrooper.packetevents.event.PacketSendEvent;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;

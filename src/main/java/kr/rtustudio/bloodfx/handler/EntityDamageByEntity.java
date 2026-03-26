@@ -1,4 +1,4 @@
-package kr.rtustudio.bloodfx.listener;
+package kr.rtustudio.bloodfx.handler;
 
 import kr.rtustudio.bloodfx.BloodFX;
 import kr.rtustudio.bloodfx.configuration.EffectConfig;
@@ -22,12 +22,14 @@ public class EntityDamageByEntity extends RSListener<BloodFX> {
     private final EffectConfig effectConfig;
     private final ParticleConfig particleConfig;
     private final ToggleManager manager;
+    private final boolean isModernVersion;
 
     public EntityDamageByEntity(BloodFX plugin) {
         super(plugin);
         this.effectConfig = plugin.getConfiguration(EffectConfig.class);
         this.particleConfig = plugin.getConfiguration(ParticleConfig.class);
         this.manager = plugin.getToggleManager();
+        this.isModernVersion = MinecraftVersion.isSupport("1.20.5");
     }
 
     @EventHandler
@@ -53,7 +55,7 @@ public class EntityDamageByEntity extends RSListener<BloodFX> {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 World world = player.getWorld();
                 if (world == victim.getWorld() && manager.get(player.getUniqueId())) {
-                    Particle particle = MinecraftVersion.isSupport("1.20.5") ? Particle.BLOCK : Particle.valueOf("BLOCK_CRACK");
+                    Particle particle = Particle.valueOf(isModernVersion ? "BLOCK" : "BLOCK_CRACK");
                     player.spawnParticle(particle, hitLoc.getX(), hitLoc.getY(), hitLoc.getZ(), effectConfig.getParticle().getAmount(), blockCrackData);
                 }
             }

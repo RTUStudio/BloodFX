@@ -5,11 +5,12 @@ import kr.rtustudio.bloodfx.configuration.EffectConfig;
 import kr.rtustudio.bloodfx.configuration.ParticleConfig;
 import kr.rtustudio.bloodfx.configuration.serializer.EntityTypeSerializer;
 import kr.rtustudio.bloodfx.configuration.serializer.MaterialSerializer;
-import kr.rtustudio.bloodfx.dependency.DamageIndicatorPacket;
-import kr.rtustudio.bloodfx.dependency.StatusPlaceholder;
-import kr.rtustudio.bloodfx.listener.EntityDamageByEntity;
-import kr.rtustudio.bloodfx.listener.PlayerJoinQuit;
+import kr.rtustudio.bloodfx.integration.DamageIndicatorPacket;
+import kr.rtustudio.bloodfx.integration.StatusPlaceholder;
+import kr.rtustudio.bloodfx.handler.EntityDamageByEntity;
+import kr.rtustudio.bloodfx.handler.PlayerJoinQuit;
 import kr.rtustudio.bloodfx.manager.ToggleManager;
+import kr.rtustudio.configurate.model.ConfigPath;
 import kr.rtustudio.framework.bukkit.api.RSPlugin;
 import lombok.Getter;
 import org.bukkit.Material;
@@ -19,18 +20,22 @@ import org.bukkit.permissions.PermissionDefault;
 public class BloodFX extends RSPlugin {
 
     @Getter
+    private static BloodFX instance;
+
+    @Getter
     private ToggleManager toggleManager;
 
     @Override
-    public void load() {
+    protected void load() {
+        instance = this;
     }
 
     @Override
-    public void enable() {
-        initStorage("Toggle");
+    protected void enable() {
+        registerStorage("Toggle");
 
-        registerConfiguration(EffectConfig.class, "Effect");
-        registerConfiguration(ParticleConfig.class, "Particle", builder -> {
+        registerConfiguration(EffectConfig.class, ConfigPath.of("Effect"));
+        registerConfiguration(ParticleConfig.class, ConfigPath.of("Particle"), builder -> {
             builder.register(EntityType.class, new EntityTypeSerializer());
             builder.register(Material.class, new MaterialSerializer());
         });
@@ -47,5 +52,4 @@ public class BloodFX extends RSPlugin {
         registerIntegration(new StatusPlaceholder(this));
         registerIntegration(new DamageIndicatorPacket(this));
     }
-
 }
