@@ -5,7 +5,13 @@ import kr.rtustudio.configurate.objectmapping.meta.Comment;
 import lombok.Getter;
 
 @Getter
-@SuppressWarnings({"unused", "CanBeFinal", "FieldCanBeLocal", "FieldMayBeFinal", "InnerClassMayBeStatic"})
+@SuppressWarnings({
+        "unused",
+        "CanBeFinal",
+        "FieldCanBeLocal",
+        "FieldMayBeFinal",
+        "InnerClassMayBeStatic"
+})
 public class EffectConfig extends ConfigurationPart {
 
     @Comment("""

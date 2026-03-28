@@ -63,19 +63,21 @@ public class EntityDamageByEntity extends RSListener<BloodFX> {
     }
 
     private Location fromMelee(LivingEntity attacker, Entity victim) {
-        if (effectConfig.getParticle().isPrecisionLocation()) {
-            Location loc1 = attacker.getEyeLocation();
-            Location loc2 = attacker.getEyeLocation().add(attacker.getLocation().getDirection().multiply(10));
-            return applyVariance(victim, loc1, loc2);
-        } else return victim.getBoundingBox().getCenter().toLocation(victim.getWorld());
+        if (!effectConfig.getParticle().isPrecisionLocation()) {
+            return victim.getBoundingBox().getCenter().toLocation(victim.getWorld());
+        }
+        Location loc1 = attacker.getEyeLocation();
+        Location loc2 = attacker.getEyeLocation().add(attacker.getLocation().getDirection().multiply(10));
+        return applyVariance(victim, loc1, loc2);
     }
 
     private Location fromProjectile(Entity projectile, Entity victim) {
-        if (effectConfig.getParticle().isPrecisionLocation()) {
-            Location loc1 = projectile.getLocation().add(projectile.getVelocity().multiply(-3));
-            Location loc2 = projectile.getLocation().add(projectile.getVelocity().multiply(3));
-            return applyVariance(victim, loc1, loc2);
-        } else return victim.getBoundingBox().getCenter().toLocation(victim.getWorld());
+        if (!effectConfig.getParticle().isPrecisionLocation()) {
+            return victim.getBoundingBox().getCenter().toLocation(victim.getWorld());
+        }
+        Location loc1 = projectile.getLocation().add(projectile.getVelocity().multiply(-3));
+        Location loc2 = projectile.getLocation().add(projectile.getVelocity().multiply(3));
+        return applyVariance(victim, loc1, loc2);
     }
 
     private Location applyVariance(Entity victim, Location loc1, Location loc2) {
@@ -83,20 +85,15 @@ public class EntityDamageByEntity extends RSListener<BloodFX> {
         for (double i = 1.0D; i <= loc1.distance(loc2); i += effectConfig.getParticle().getVariance()) {
             vector.multiply(i);
             loc1.add(vector);
-            boolean isX = false;
-            boolean isY = false;
-            boolean isZ = false;
-            if (victim.getBoundingBox().getMinX() - 0.5D <= loc1.getX() && victim
-                    .getBoundingBox().getMaxX() + 0.5D >= loc1.getX())
-                isX = true;
-            if (victim.getBoundingBox().getMinY() - 0.5D <= loc1.getY() && victim
-                    .getBoundingBox().getMaxY() + 0.5D >= loc1.getY())
-                isY = true;
-            if (victim.getBoundingBox().getMinZ() - 0.5D <= loc1.getZ() && victim
-                    .getBoundingBox().getMaxZ() + 0.5D >= loc1.getZ())
-                isZ = true;
-            if (isX && isY && isZ)
+
+            boolean isX = victim.getBoundingBox().getMinX() - 0.5D <= loc1.getX() && victim.getBoundingBox().getMaxX() + 0.5D >= loc1.getX();
+            boolean isY = victim.getBoundingBox().getMinY() - 0.5D <= loc1.getY() && victim.getBoundingBox().getMaxY() + 0.5D >= loc1.getY();
+            boolean isZ = victim.getBoundingBox().getMinZ() - 0.5D <= loc1.getZ() && victim.getBoundingBox().getMaxZ() + 0.5D >= loc1.getZ();
+
+            if (isX && isY && isZ) {
                 return loc1;
+            }
+
             loc1.subtract(vector);
             vector.normalize();
         }

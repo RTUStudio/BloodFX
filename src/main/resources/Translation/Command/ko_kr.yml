@@ -1,0 +1,5 @@
+bloodfx:
+  name: "혈흔"
+  description: "BloodFX 시스템 명령어입니다."
+  usage: "/혈흔"
+

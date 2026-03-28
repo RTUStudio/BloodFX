@@ -1,0 +1,4 @@
+bloodfx:
+  name: "BloodFX"
+  description: "BloodFX management command."
+  usage: "/bloodfx"

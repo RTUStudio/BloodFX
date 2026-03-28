@@ -1,7 +1,5 @@
 package kr.rtustudio.bloodfx.configuration;
 
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-
 import kr.rtustudio.configurate.model.ConfigurationPart;
 import kr.rtustudio.configurate.objectmapping.meta.Comment;
 import kr.rtustudio.configurate.objectmapping.meta.Setting;
@@ -14,7 +12,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Getter
-@SuppressWarnings({"unused", "CanBeFinal", "FieldCanBeLocal", "FieldMayBeFinal", "InnerClassMayBeStatic"})
+@SuppressWarnings({
+        "unused",
+        "CanBeFinal",
+        "FieldCanBeLocal",
+        "FieldMayBeFinal",
+        "InnerClassMayBeStatic"
+})
 public class ParticleConfig extends ConfigurationPart {
 
     @Comment("""
@@ -29,7 +33,7 @@ public class ParticleConfig extends ConfigurationPart {
     private Material defaultParticle = Material.REDSTONE_BLOCK;
 
     @Setting(nodeFromParent = true)
-    private final Map<EntityType, Material> particles = make(new Object2ObjectOpenHashMap<>(), map -> {
+    private Map<EntityType, Material> particles = make(new HashMap<>(), map -> {
         map.put(EntityType.ARMOR_STAND, Material.AIR);
         map.put(EntityType.CREEPER, Material.OAK_LEAVES);
         EntityType endCrystal = MinecraftVersion.isSupport("1.20.5") ? EntityType.valueOf("END_CRYSTAL") : EntityType.valueOf("ENDER_CRYSTAL");
