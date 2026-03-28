@@ -36,8 +36,11 @@ public class ParticleConfig extends ConfigurationPart {
     private Map<EntityType, Material> particles = make(new HashMap<>(), map -> {
         map.put(EntityType.ARMOR_STAND, Material.AIR);
         map.put(EntityType.CREEPER, Material.OAK_LEAVES);
-        EntityType endCrystal = MinecraftVersion.isSupport("1.20.5") ? EntityType.valueOf("END_CRYSTAL") : EntityType.valueOf("ENDER_CRYSTAL");
-        map.put(endCrystal, Material.GLASS);
+        if (MinecraftVersion.isSupport("1.20.5")) {
+            map.put(EntityType.valueOf("END_CRYSTAL"), Material.GLASS);
+        } else {
+            map.put(EntityType.valueOf("ENDER_CRYSTAL"), Material.GLASS);
+        }
         map.put(EntityType.ENDER_DRAGON, Material.CRYING_OBSIDIAN);
         map.put(EntityType.ENDERMAN, Material.BLACK_SHULKER_BOX);
         map.put(EntityType.SKELETON, Material.WHITE_SHULKER_BOX);

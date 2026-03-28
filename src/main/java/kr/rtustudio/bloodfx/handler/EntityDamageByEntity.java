@@ -22,14 +22,14 @@ public class EntityDamageByEntity extends RSListener<BloodFX> {
     private final EffectConfig effectConfig;
     private final ParticleConfig particleConfig;
     private final ToggleManager manager;
-    private final boolean isModernVersion;
+    private final Particle blockParticle;
 
     public EntityDamageByEntity(BloodFX plugin) {
         super(plugin);
         this.effectConfig = plugin.getConfiguration(EffectConfig.class);
         this.particleConfig = plugin.getConfiguration(ParticleConfig.class);
         this.manager = plugin.getToggleManager();
-        this.isModernVersion = MinecraftVersion.isSupport("1.20.5");
+        this.blockParticle = MinecraftVersion.isSupport("1.20.5") ? Particle.BLOCK : Particle.valueOf("BLOCK_CRACK");
     }
 
     @EventHandler
@@ -55,8 +55,7 @@ public class EntityDamageByEntity extends RSListener<BloodFX> {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 World world = player.getWorld();
                 if (world == victim.getWorld() && manager.get(player.getUniqueId())) {
-                    Particle particle = Particle.valueOf(isModernVersion ? "BLOCK" : "BLOCK_CRACK");
-                    player.spawnParticle(particle, hitLoc.getX(), hitLoc.getY(), hitLoc.getZ(), effectConfig.getParticle().getAmount(), blockCrackData);
+                    player.spawnParticle(blockParticle, hitLoc.getX(), hitLoc.getY(), hitLoc.getZ(), effectConfig.getParticle().getAmount(), blockCrackData);
                 }
             }
         }
